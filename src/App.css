@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Avenir');
+
+.body{
+  padding:"30px";
+
+}
+.overlay{
+  background-color:  rgba(0, 0, 0, 0.85);
+  border-radius: "5px";
+  height: "1000px";
+  width: "300px";
+  position: "absolute";
+  top: "0";
+  left: "0";
+  right: "0";
+  bottom: "0";
+  z-index: "9999";
+  text-align: "center";
+  background-color: rgba(0, 0, 0, 0.85);
+
+
+}
+
+.overlay{
+  text-align: "center";
+}
+
+.overlay:before {
+  content: "";
+  display: "inherent-block";
+  height: "100%";
+  vertical-align: "middle";
+  margin-right: "-0.25rem";
+}
+.txt{
+  vertical-align: "middle";
+  padding: "10px 5px";
+  position: "relative";
+  display: "inline-block";
+}
+
+.box{
+  padding: "20px";
+  position: "relative"
+}
+
+.large {
+  width: "600px";
+  height: "500px";
+}
