@@ -1,0 +1,146 @@
+{
+  "user": [
+    {
+      "id": "1",
+      "airtimeAmount": 500,
+      "bank": "uba",
+      "phoneno": "08023995138"
+    },
+    {
+      "id": "2",
+      "airtimeAmount": 500,
+      "bank": "firstbank",
+      "phoneno": "08024876534"
+    },
+    {
+      "phoneNo": "7578789",
+      "id": "39ksvAx"
+    },
+    {
+      "phoneNo": "234516",
+      "id": "dNoJ5QO"
+    },
+    {
+      "phoneNo": "456789",
+      "id": "lalIG6N"
+    },
+    {
+      "phoneNo": "080080",
+      "id": "fvL_D2R"
+    },
+    {
+      "phoneNo": "0902345",
+      "id": "ghaa5_t"
+    },
+    {
+      "id": "Q1VdKFo"
+    },
+    {
+      "id": "TRhok2n"
+    },
+    {
+      "id": "lSD3tBl"
+    },
+    {
+      "id": "0PvdKiU"
+    },
+    {
+      "id": "o4r2OAF"
+    },
+    {
+      "id": "ai_bxvh"
+    },
+    {
+      "id": "bku7p3g"
+    },
+    {
+      "id": "nFzkvTY"
+    },
+    {
+      "id": "lOL2KBW"
+    },
+    {
+      "id": "0qOL9XU"
+    },
+    {
+      "id": "wf9Hjqn"
+    },
+    {
+      "id": "_lT2vyv"
+    },
+    {
+      "id": "bfK0Lrs"
+    },
+    {
+      "id": "kij4AKa"
+    },
+    {
+      "id": "0a4FOt6"
+    },
+    {
+      "phoneNo": "08023995138",
+      "id": "iNEPrcr"
+    }
+  ],
+  "otp": [
+    {
+      "otp": "06734",
+      "id": "5"
+    },
+    {
+      "otp": "890256",
+      "id": "FydYieY"
+    },
+    {
+      "otp": "35467",
+      "id": "Q43rnAM"
+    },
+    {
+      "otp": "890256",
+      "id": "5A3abLr"
+    }
+  ],
+  "nolink": [
+    {
+      "id": "5",
+      "airtimeAmount": "300",
+      "bank": "zenith",
+      "phoneNo": "0801111111"
+    },
+    {
+      "phoneNo": "08023995138",
+      "bank": "Guarantee trust bank",
+      "id": "6NmGUWb"
+    },
+    {
+      "phoneNo": "08045362788",
+      "bank": "Guarantee trust bank",
+      "id": "3-0O0rU"
+    }
+  ],
+  "bankpayment": [
+    {
+      "id": "6",
+      "airtimeAmount": "20047864",
+      "bank": "zenith",
+      "phoneNo": "0801111111"
+    },
+    {
+      "phoneNo": "08023995138",
+      "bank": "Guarantee trust bank",
+      "id": "6NmGUWb"
+    },
+    {
+      "id": "Z366NKh"
+    },
+    {
+      "id": "SJQuQw5"
+    }
+  ],
+  "phonereg": [
+    {
+      "id": "7",
+      "phoneNo": "09078654321"
+    }
+  ]
+}

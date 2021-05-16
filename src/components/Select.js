@@ -1,40 +1,49 @@
-// import React, {useState} from 'react';
-// import useStyle from './Styles';
-// import TextField from '@material-ui/core/TextField';
-// import MenuItem from '@material-ui/core/MenuItem';
+import React, {useState} from 'react';
+import banks from './banks.json';
+import useStyle from './Styles';
+import TextField from '@material-ui/core/TextField';
+import MenuItem from '@material-ui/core/MenuItem';
 
 
-// const  Select = () => {
-//     const classes = useStyle();
-//     const [bank, setBank] = useState('');
-
-//     const handleChange = (e) => {
-//      setBank(e.target.value);
-//     };
-//     return (
-//         <div className={classes.root1} noValidate autoComplete="off">
+const Select = () => {
+   
+    const [bank, setBank] = useState('');
+    const [isError, setIsError] = useState(false)
+    const classes = useStyle();
+    const handleChange = (e) => {
+     setBank(e.target.value);
+     if(e.target.value === "") {
+         setIsError(true);
+     }
+    };
+    return (
+        <div className={classes.root1} noValidate autoComplete="off">
             
-//             <div>
-//                 <TextField
-//                   id="outlined-select-bank"
-//                   select
-//                   label="Select your bank"
-//                   value={bank}
-//                   onChange={handleChange}
-//                   variant="outlined"
-//                 >
-//                   {banks.map((bank) => (
-//                     <MenuItem key={bank.value} value={bank.value}>
-//                       {bank.label}
-//                     </MenuItem>
-//                   ))}
-//                 </TextField>
-    
-//             </div>
-//         </div>
+            <TextField
+            // id="outlined-select-bank"
+            id= 'bank'
+            name="bank"
+            select
+            label="Select your bank"
+            value={bank} 
+            onChange={handleChange}
+            // onBlur={handleBlur}
+            error={isError}
         
-                        
-//     )
+            variant="outlined"
+            // value={bank}
+            // onChange={handleChange}
 
-// };
-//  export default Select;
+            >
+            {banks.map((bank) => (
+                <MenuItem key={bank.value} value={bank.value}>
+                {bank.label}
+                </MenuItem>
+            ))}
+            </TextField>
+
+        </div>
+    )
+};
+
+export default Select;

@@ -51,7 +51,7 @@ const useStyle = makeStyles(themes => ({
     },
     button: {
         margin: themes.spacing(1),
-        width: "80%",
+        width: "60%",
     },
     linkbutton: {
         marginTop: "10px",

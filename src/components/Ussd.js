@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography, Container } from '@material-ui/core';
-import Nolink from './Nolink';
+import Formussd from './Formussd';
 import useStyle from './Styles';
 
 
@@ -11,11 +11,11 @@ const Ussd = () => {
         <>
         
             <Container maxWidth="sm" className = {classes.ussd} >
-                <Typography variant="h5" align="center" gutterBottom>
+                {/* <Typography variant="h5" align="center" gutterBottom>
                   Buying airtime has never been this easy!
-                </Typography>
+                </Typography> */}
             </Container>  
-            <Nolink /> 
+            <Formussd /> 
         </>
     )
 }
