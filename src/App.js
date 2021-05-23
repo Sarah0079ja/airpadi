@@ -8,7 +8,6 @@ import Nolink from './components/Nolink';
 import Bankpayment from './components/Bankpayment';
 import Success from './components/Success';
 import Error from './components/Error';
-import Jumbotron from './components/Jumbotron';
 
 import { createMuiTheme, ThemeProvider} from '@material-ui/core';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'; 
@@ -43,7 +42,6 @@ const App = () => {
             <Route exact path="/nolink" component={Nolink}/>
             <Route exact path="/otp" component={Otp}/>
             <Route exact path="/completetrans" component={Completetrans}/>
-            <Route exact path="/jum" component={Jumbotron}/>
             <Route exact path="/success" component={Success}/>
             <Route exact path="/error" component={Error}/>
             <Route exact path="/bankpayment" component={Bankpayment}/>
