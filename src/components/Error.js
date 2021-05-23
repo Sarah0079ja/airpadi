@@ -1,12 +1,16 @@
 import React, {useState} from 'react';
 import Modal from 'react-modal';
-// import Formussd from './Formussd'
+import { Typography} from '@material-ui/core'
+import ErrorIcon from '@material-ui/icons/Error';
+import useStyle from './Styles';
 
 function Error() {
-    const [modalIsOpen, setModalIsOpen] = useState(true)
+    const [modalIsOpen, setModalIsOpen] = useState(true);
+    const classes = useStyle();
+    Modal.setAppElement('#root')
     return (
         <div className="">
-          {/* <button onClick={() => setModalIsOpen(false)}>Open Modal</button> */}
+    
           <Modal 
           isOpen={modalIsOpen} 
           onRequestClose={() => setModalIsOpen(false)}
@@ -15,7 +19,7 @@ function Error() {
               {
                   overlay:{
                     // background: url(${image}) no-repeat fixed bottom;
-                    backgroundColor: "#000000"
+                    backgroundColor: "#E5E5E5"
                     //   backgroundColor: 'transparent !important'
                   },
                   content: {
@@ -25,15 +29,25 @@ function Error() {
                       bottom: "auto",
                       marginRight: "-50%",
                       transform: "translate(-50%, -50%)",
-                      width:"40%"
+                    
                   }
               }
           }>
-                {/* <Formussd/> */}
-                <h3>We have encountered an error, please take a few minutes and try again</h3>
-                <div>
-                    <button onClick={() =>setModalIsOpen(false)}>x</button>
+               
+               <div >
+                    <button className={classes.modalbutton} onClick={() =>setModalIsOpen(false)}>x</button>
+               </div>
+               
+                <div className={classes.error}>
+                <ErrorIcon fontSize="3.5rem"/>
                 </div>
+                
+                <Typography style={{marginBottom: "20px"}}>
+                We have encountered an error, please take
+                a few minutes and try again
+                </Typography>
+               
+                
           </Modal>
         </div>
     )

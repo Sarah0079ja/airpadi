@@ -1,12 +1,16 @@
 import React, {useState} from 'react';
 import Modal from 'react-modal';
-// import Formussd from './Formussd'
+import successalert from './image/successalert.png';
+import { Typography} from '@material-ui/core'; 
 
-function Success() {
+
+function Success(props) {
     const [modalIsOpen, setModalIsOpen] = useState(true)
+    // const [airtimeAmount, other] = props
+    Modal.setAppElement('#root')
     return (
         <div className="">
-          {/* <button onClick={() => setModalIsOpen(false)}>Open Modal</button> */}
+        
           <Modal 
           isOpen={modalIsOpen} 
           onRequestClose={() => setModalIsOpen(false)}
@@ -15,7 +19,7 @@ function Success() {
               {
                   overlay:{
                     // background: url(${image}) no-repeat fixed bottom;
-                    backgroundColor: "#000000"
+                    backgroundColor: "#E5E5E5"
                     //   backgroundColor: 'transparent !important'
                   },
                   content: {
@@ -25,15 +29,20 @@ function Success() {
                       bottom: "auto",
                       marginRight: "-50%",
                       transform: "translate(-50%, -50%)",
-                      width:"40%"
+                    
                   }
               }
           }>
-                {/* <Formussd/> */}
-                <h3>You have successfully purchased ..... from your ... bank</h3>
-                <div>
-                    <button onClick={() =>setModalIsOpen(false)}>x</button>
+                 <div>
+                    <button onClick={() =>setModalIsOpen(false)}
+                    
+                    >x</button>
                 </div>
+                <img src={successalert} alt="" 
+                 style={{marginLeft:"45%", marginTop: "20px",marginBottom:"20px", height:"40px", width: "40px" }}/>
+                <Typography variant="h6" style={{marginBottom: "20px",}}>
+                You have successfully purchased  {props.airtimeAmount} from your {props.bank} bank
+                </Typography>      
           </Modal>
         </div>
     )

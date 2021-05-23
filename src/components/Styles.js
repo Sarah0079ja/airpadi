@@ -53,20 +53,65 @@ const useStyle = makeStyles(themes => ({
         margin: themes.spacing(1),
         width: "60%",
     },
+     modalbutton:{
+         color: "#000000",
+        position: "relative",
+         border: "2px solid #E5E5E5",
+        padding: "7px 9px 7px 9px",
+         fontFamily: "Avenir",
+         background: "#E5E5E5",
+    
+          top: "-20px",
+          left: "95%",
+        borderRadius: "50%",
+    // //    transition: "background 500ms",
+     },
+     mod: {
+         fontSize: '20px',
+        fontFamily: 'Avenir',
+        position: 'absolute',
+        margin: '10px auto',
+        fontWeight: "200px",
+         padding: "200px auto",
+       
+        backgroundColor: 'paper',
+        
+         boxShadow: 'theme.shadows[3]',
+        // padding: 'theme.spacing(2, 4, 3)',
+      },
+      modal: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
+    //   h2: {
+    //     padding: "80px 35px 0px 35px",
+        
+    //   },
+    error:{
+        // marginTop: "20px",
+        marginLeft:"45%",
+        marginBottom: "10px",
+        color: '#B20808',
+        fontSize: "4.5rem"
+    },
     linkbutton: {
         marginTop: "10px",
-        marginLeft: "55px",
+        padding: "5px auto",
+        marginLeft: "35px",
+        border: '0.5px solid rgba(63, 81, 181, 0.5)'
     },
 
     link1: {
-        justifyContent: "center",
-        display: "flex",
+        // justifyContent: "center",
+        display: "column",
         font: "Avenir",
-        marginLeft: "10px",
-        width: "305px",
+        // marginLeft: "10px",
+        // width: "305px",
         height: "25px",
         color: "grey",
-        
+        textDecoration: "none",
+        active: "underline",
         marginBottom: "35px",
         paddingTop: "45px"
     },
@@ -82,13 +127,13 @@ const useStyle = makeStyles(themes => ({
      },
     sec: {
         fontSize: "15px",
-        marginLeft: "55px",
+        marginLeft: "35px",
         marginTop: "25px",
     },
 
     sec1: {
         fontSize: "18px",
-        marginLeft: "55px",
+        marginLeft: "35px",
         marginTop: "40px",
         LineHeight: "24.59px",
         fontWeight: "800px",

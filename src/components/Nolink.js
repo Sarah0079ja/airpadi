@@ -14,7 +14,7 @@ import banks from './banks.json';
 
 const validationSchema = yup.object({
   airtimeAmount: yup.string().matches(/^[1-9]{7}/,"Enter your airtime amount").required('Required'),
-  phoneNo: yup.string().matches(/^[0-9]{2}[0-9]{9}/,"Enter your phone number").required('Required'),
+  phoneNo: yup.string().matches(/^[0]{1}[0-9]{2}[0-9]{8}/,"Enter your phone number").required('Required'),
   bank: yup.string().required("Select your bank"),
 })
 

@@ -9,7 +9,6 @@
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
-    "formik": "^2.2.6",
     "json-server": "^0.16.3",
     "react": "^17.0.2",
     "react-bootstrap": "^1.5.2",
@@ -17,17 +16,15 @@
     "react-modal": "^3.13.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
-    "react-select": "^4.3.0",
-    "styled-components": "^5.3.0",
     "uuid": "^8.3.2",
-    "web-vitals": "^1.1.1",
-    "yup": "^0.32.9"
+    "web-vitals": "^1.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "json:server": "json-server--watch db.json"
   },
   "eslintConfig": {
     "extends": [
@@ -46,5 +43,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {}
 }

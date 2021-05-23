@@ -1,64 +1,96 @@
 import React, {useState} from 'react';
 import Modal from 'react-modal';
 import {useHistory} from 'react-router-dom';
-// import Spinner from './Spinner';
-// import axios from 'axios';
-// import Success from './Success';
-import Error from './Error';
+
+ import Error from './Error';
 
 import { TextField, Typography} from '@material-ui/core';
 import useStyle from './Styles';
 import Button from '@material-ui/core/Button';
 
 function Phonereg1() {
+        //  const phoneNoRegex = RegExp(/^234[0-9]{11}/)
 
-        const [phoneNo, setPhoneNo] = useState('')
-        const [isError, setIsError] = useState(false)
-        // const [loading, setLoading] = useState(false)
+       const [state, setState] = useState({
+           phoneNoError: '',
+       })
+       const [phoneNo, setPhoneNo]= useState('')
         const history = useHistory();
         const classes = useStyle();
+
+        let isError = false;
+        const errors = {}
+
+        //validate phoneNo
+        function validatePhoneNo() {
+            if(phoneNo.length < 11 || phoneNo.length === '') {
+                isError = true;
+                console.log('we good')
+            } 
+          
+            else {
+                isError = false;
+                errors.phoneNoError = "Phone Number must be 11 digits"
+            }
+        }
+       
+        //main validate function that invokes other validate functions
+        function validate(){
+            validatePhoneNo();
+
+            if(isError){
+                setState({
+                    ...state,
+                    ...errors
+                })
+            } return isError;
+        };
+        
+        async function onSubmit (e) {
+            e.preventDefault();
+            const err = validate();
+            if (!err) {
+                let item={phoneNo}
+                console.log(item)
+    
+                let result= await fetch('http://localhost:8000/user', {
+                method: "POST",
+                body:JSON.stringify(item),
+                headers: {
+                    'Content-Type': "application/json",
+                    "Accept": 'application/json'
+                }
+            })
+            result = await result.json()
+            console.log('result', result)
+          
+            
+            localStorage.setItem("user-info", JSON.stringify(result))
+            history.push("/otp")  
+            } else {
+                setTimeout(() => {
+                    <Error/>
+                }, 5000);
+            }
+                 
+                        
+}
         
 
-        async function onSubmit () {
-                try {
-                    let item={phoneNo}
-                    console.log(item)
-    
-                    let result= await fetch('http://localhost:8000/user', {
-                    method: "POST",
-                    body:JSON.stringify(item),
-                    headers: {
-                        'Content-Type': "application/json",
-                        "Accept": 'application/json'
-                    }
-                })
-                result = await result.json()
-                console.log('result', result)
-              
-                
-                localStorage.setItem("user-info", JSON.stringify(result))
-                history.push("/otp")
-                } catch (error) {
-                    <Error/>
-                }
-
-
-               
-        }
-
     const [modalIsOpen, setModalIsOpen] = useState(true)
+    Modal.setAppElement('#root')
     return (
         <div className="">
          
           <Modal 
           isOpen={modalIsOpen} 
-          onRequestClose={() => setModalIsOpen(false)}
-          shouldCloseOverlayClick = {false}
+           onRequestClose={() => setModalIsOpen(false)}
+        //   shouldCloseOverlayClick = {false}
           style={
               {
                   overlay:{
                    
-                    backgroundColor: "#000000"
+                    backgroundColor: "#E5E5E5"
                    
                   },
                   content: {
@@ -68,7 +100,7 @@ function Phonereg1() {
                       bottom: "auto",
                       marginRight: "-50%",
                       transform: "translate(-50%, -50%)",
-                      width:"40%"
+                      
                   }
               }
           }>
@@ -89,20 +121,16 @@ function Phonereg1() {
                             </Typography>
 
                             <TextField variant="outlined" 
-                                type="tel"
-                                error={isError}
+                                type="text"
                                 label="Phone Number" 
                                 id="phoneNo"
-                                value={phoneNo}
-                                        // value={formik.values.phoneNo} 
-                                onChange={(e) => {
-                                setPhoneNo(e.target.value);
-                                if(e.target.value.length === 11) {
-                                    setIsError(true);
-                                }
-                                }}   
+                                maxLength="11"
+                                value={phoneNo}     
+                                onChange={(e) => 
+                                setPhoneNo(e.target.value)}   
                                 name="phoneNo"    
                                 />
+                                <div className="error" style={{color: "red"}}>{state.phoneNoError}</div>
                                     
                              <Typography variant="h6" align="center" gutterBottom> 
                                 <Button variant="contained" size="small" className={classes.button} 
@@ -116,9 +144,7 @@ function Phonereg1() {
                                 </div>  
                             </form>
                      </div>
-                {/* <div>
-                    <button onClick={() =>setModalIsOpen(false)}>x</button>
-                </div> */}
+          
           </Modal>
         </div>
     )

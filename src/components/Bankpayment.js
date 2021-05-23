@@ -1,138 +1,267 @@
-import React from 'react';
-import axios from 'axios';
-import {useFormik} from 'formik';
-import * as yup from 'yup';
-// import {useHistory} from 'react-router-dom';
-import { TextField,Paper, Container, Typography} from '@material-ui/core';
 
-// import InputAdornment from '@material-ui/core/Pen';
+	////IT WORKS
 
-import MenuItem from '@material-ui/core/MenuItem';
-import useStyle from './Styles';
-import Links from './Links';
-import Button from '@material-ui/core/Button';
-import banks from './banks.json'
-
-const validationSchema = yup.object({
-  airtimeAmount: yup.string().matches(/^[1-9]{3}/,"Enter your airtime amount").required('Required'),
-  phoneNo: yup.string().matches(/^[0-9]{2}[0-9]{8}/,"Enter your phone number").required('Required'),
-  bank: yup.string().required("Select your bank"),
-})
-
-const Bankpayment = () => {
- 
-  const onSubmit = async (values) => {
-    // const {airtimeAmount, phoneNo, bank} = values;
-    const response = await axios.post('http://localhost:8000/bankpayment').catch((err) => {
-      if(err && err.response) 
-        console.log('Error: ', err);
-    });
-      if(response && response.data) {
-         console.log(response.data);
-      } 
-      
-      // localStorage.setItem("user-info", JSON.stringify(response))
-    };
-
-    const formik = useFormik({
-      initialValues: {
-        airtimeAmount: "",
-        phoneNo: "",
-        bank: []
-      },
-      validationOnBlur: true,
-      onSubmit,
-      validationSchema: validationSchema
-    })
-     
-
-    // const formValidation = () => {
-       const classes = useStyle();
-    return (
-      
-        <div maxWidth="sm">
-
-            <Container maxWidth="sm" className = {classes.ussd} >
-                <Typography variant="h5" align="center" gutterBottom>
-                  Buying airtime has never been this easy!
-                </Typography>
-            </Container> 
-        <Paper>
-            
-              <Links />
-             <form className = {classes.root} onSubmit={formik.handleSubmit}>
-                 <div align="center">
-                    <div item xs={6} className = {classes.form}>
-                        <TextField
-                         type="number"
-                         variant="outlined"
-                         label="Airtime amount"
-                         id="airtimeAmount"
-                         value={formik.values.airtimeAmount}
-                         name="airtimeAmount"
-                         onChange={formik.handleChange}
-                         onBlur={formik.handleBlur}
-                         error={formik.touched.airtimeAmount && Boolean(formik.errors.airtimeAmount) }
-                         helperText={formik.touched.airtimeAmount && formik.errors.airtimeAmount}
-                        
-                        //  id="input-with-icon-textfield"
-                        //  value={airtime}
-                      
-                        //  InputProps={{endAdornment:( <InputAdornment position="end"></InputAdornment>),}}
-                        />
-
-                <div className={classes.root1} noValidate autoComplete="off">
-                    <TextField
-                    id="bank"
-                    name="bank"
-                    select
-                    label="Select your bank"
-                    value={formik.values.bank} 
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    error={formik.touched.bank && Boolean(formik.errors.bank)}
-                    helperText={formik.touched.bank && formik.errors.bank}
-                    variant="outlined"
-                    // value={bank}
-                    // onChange={handleChange}
-                    
-                    >
-                    {banks.map((bank) => (
-                        <MenuItem key={bank.value} value={bank.value}>
-                        {bank.label}
-                        </MenuItem>
-                    ))}
-                    </TextField>
-                    
-                </div>
-                        
-                        <TextField variant="outlined" 
-                        label="Phone Number" 
-                        id="phoneNo"
-                        value={formik.values.phoneNo} 
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                        error={formik.touched.phoneNo && Boolean(formik.errors.phoneNo)}
-                        helperText={formik.touched.phoneNo && formik.errors.phoneNo}
-                        name="phoneNo" 
-                        />
-                        <Typography variant="h6" align="center" gutterBottom> 
-                                <Button variant="contained" size="large" color="primary" className={classes.button} >
-                                    complete Transaction
-                                </Button> 
-                        </Typography>
-                        
-                        
-                        
-                                    
-                    </div>
-                </div>
-             </form>
+    import React, {useState, useEffect} from 'react';
+    import axios from 'axios';
+    import party from './image/party.png';
+    import Success from './Success';
+    // import pen from './image/pen.png';
     
-        </Paper>
-        </div>
+    // import {useHistory} from 'react-router-dom';
+    import { TextField,Paper, Container, Typography} from '@material-ui/core';
+    //  import InputAdornment from '@material-ui/core/';
+    import Error from './Error';
+    import useStyle from './Styles';
+    import Links from './Links';
+    import Button from '@material-ui/core/Button';
+    import Modal from '@material-ui/core/Modal';
+    import {useHistory} from 'react-router-dom';
+    // import { makeStyles } from '@material-ui/core/styles';
+    
+    
+    function rand() {
+        return Math.round(Math.random() * 20) - 10;
+      }
+    
+      function getModalStyle() {
+        const top = 50 + rand();
+        const left = 45 + rand();
+      
+        return {
+            // top: "50%",
+            // left: "50%",
+            // right: "auto",
+            // bottom: "auto",
+            // marginRight: "-50%",
+            // transform: "translate(-50%, -50%)",
+            // width:"40%"
+            //  width:  "200px",
+            //  height: "200px",
+             top: `${top}%`,
+             left: `${left}%`,
+             bottom: 'auto',
+             marginRight: "-50%",
+             transform: `translate(-${top}%, -${left}%)`,
+             color: 'black',
+             align: "center"
+        };
+      }
+    
+    // const useStyles = makeStyles((theme) => ({
      
-    )
-}
-
-export default Bankpayment;
+    // }));
+    
+      
+    const B = () => {
+        const [state, setState] = useState({
+            airtimeAmountError: '',
+        })
+        const [airtimeAmount, setAirtimeAmount] = useState('')
+        const [other, setOther] = useState('')
+        const [modalStyle] = useState(getModalStyle);
+        const [open, setOpen] = useState(false);
+        const classes = useStyle();
+        const history = useHistory();
+    
+        const handleOpen = () => {
+            setOpen(true);
+          };
+        
+          const handleClose = () => {
+            setOpen(false);
+          };
+    
+          
+      const body = (
+        <div style={modalStyle} className={classes.mod} >
+            <Paper>
+          <h2 id="simple-modal-title" className={classes.h2}>Transaction Details</h2>
+          <p id=""
+          className={classes.h2} >
+              <table>
+                  <tr>
+                      <th>Airtime amount</th>
+                      <td>{airtimeAmount}</td>
+                  </tr>
+    
+                  <tr>
+                      <th style={{alignItems:"flex-start"}}> Bank</th>
+                      <td>{other.bank}</td>
+                  </tr>
+    
+                  <tr>
+                      <th>Phone number</th>
+                      <td>{other.phoneNo}</td>
+                  </tr>
+    
+    
+              </table>
+          
+          </p>
+          <Typography variant="h6" align="center" gutterBottom> 
+            <Button variant="contained" size="large" color="primary" className={classes.button} onClick={onSubmit}>
+                 Buy Airtime
+            </Button>   
+          </Typography>
+          </Paper>
+        </div>
+      );
+        
+        // const [count, setCount] = useState(1)
+        // const history = useHistory();
+    
+        let isError = false;
+        const errors = {}
+    
+        //validate otp
+        function validateAirtimeAmount() {
+            if(airtimeAmount.length < 3 || airtimeAmount.length === '') {
+                isError = true;
+                console.log('we good')
+            } 
+          
+            else {
+                isError = false;
+                errors.airtimeAmountError = "Enter Airtime Amount"
+            }
+        }
+    
+          //main validate function that invokes other validate functions
+          function validate(){
+            validateAirtimeAmount();
+    
+            if(isError){
+                setState({
+                    ...state,
+                    ...errors
+                })
+            } return isError;
+        };
+    
+        useEffect(() => {
+           const fetchData = async () => {
+            const result = await axios.get('http://localhost:8000/b/8');
+               setOther(result.data);
+            };
+            fetchData();
+        }, []);
+    
+    
+        async function onSubmit (e) {
+            e.preventDefault();
+            const err = validate();
+            if(!err) {
+                let item={airtimeAmount, other}
+                console.log(item)
+    
+                let result= await fetch('http://localhost:8000/user', {
+                method: "POST",
+                body:JSON.stringify(item),
+                headers: {
+                    'Content-Type': "application/json",
+                    "Accept": 'application/json'
+                }
+            })
+            result = await result.json()
+            console.log('result', result)
+            localStorage.setItem("user-info", JSON.stringify(result))
+            setTimeout(() => {
+                history.push('/success')
+            }, 5000);
+            
+            
+            } else{
+                setTimeout(() => {
+                    <Error/>
+                }, 5000); 
+            }      
+        }
+    
+        return (
+            <Container maxWidth="sm">
+                 <div>
+              
+                 </div>
+                  
+                    {/* <div maxWidth="sm" className = {classes.ussd} >
+                        <Success airtimeAmount={airtimeAmount} phoneNo={other.phoneNo} />
+                        <Completetrans airtimeAmount={airtimeAmount} phoneNo={other.phoneNo} bank={other.bank}/>
+                    </div>  */}
+    
+                    <div>
+                     <Typography variant="h5" align="center" gutterBottom>
+                     Buying airtime has never been this easy!
+                     <img src={party} alt="" style={{marginLeft:"5px", height:"20px", width: "20px"}}/>
+                     </Typography>
+                  <Paper>
+                
+                    <Links />
+                     <form className = {classes.root} onSubmit={onSubmit}>
+                       
+                        <div align="center">
+                           <div item xs={6} className = {classes.form}>
+                               <TextField
+                                type="text"
+                                variant="outlined"
+                                label="Airtime amount"
+                                id="airtimeAmount"
+                                value={airtimeAmount}
+                                name="airtimeAmount"
+                                onChange={e => setAirtimeAmount(e.target.value)} 
+                               />
+                               <div className="error" style={{color: "red"}}>{state.airtimeAmountError}</div>
+       
+                       <div className={classes.root1} noValidate autoComplete="off">
+                           <TextField
+                           id="bank"
+                           name="bank"
+                           value={other.bank} 
+                           helperText="Select your bank"
+                           variant="outlined" 
+                           /> 
+                       </div>
+    
+                        <div  className={classes.root1} noValidate autoComplete="off">    
+                        <TextField variant="outlined" 
+                        id="phoneNo"
+                        value={other.phoneNo} 
+                        helperText="Enter Phone number"
+                        name="phoneNo" 
+                       />
+                       </div>  
+                            <div>
+                               <Typography variant="h6" align="center" gutterBottom> 
+                                       <Button variant="contained" size="large" color="primary" className={classes.button}
+                                        
+                                        onClick={handleOpen}
+                                       >
+                                           Buy Airtime
+                                       </Button>   
+                               </Typography>
+                            </div>
+                                          
+                           </div>
+                       </div>
+    
+                       <Modal 
+                       open={open}
+                       onClose={handleClose}
+                       aria-labelledby="simple-modal-title"
+                       aria-describedby="simple-modal-description"
+                       className={classes.modal}>
+                           
+                           <div style={{color:'black'}}>
+                                {body}
+                            </div> 
+                            
+                       </Modal>
+                     
+                    </form>   
+            </Paper>
+            </div>  
+        </Container>
+           
+        )
+    }    
+    export default B;
+    
