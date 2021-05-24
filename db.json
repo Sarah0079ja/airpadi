@@ -1,0 +1,270 @@
+{
+  "user": [
+    {
+      "id": "1",
+      "airtimeAmount": 500,
+      "bank": "uba",
+      "phoneno": "08023995138"
+    },
+    {
+      "id": "2",
+      "airtimeAmount": 500,
+      "bank": "firstbank",
+      "phoneno": "08024876534"
+    },
+    {
+      "phoneNo": "7578789",
+      "id": "39ksvAx"
+    },
+    {
+      "phoneNo": "234516",
+      "id": "dNoJ5QO"
+    },
+    {
+      "phoneNo": "456789",
+      "id": "lalIG6N"
+    },
+    {
+      "phoneNo": "080080",
+      "id": "fvL_D2R"
+    },
+    {
+      "airtimeAmount": "900",
+      "other": {
+        "id": "8",
+        "airtimeAmount": "290",
+        "bank": "zenith",
+        "phoneNo": "09076543214"
+      },
+      "id": "WTEYvpz"
+    },
+    {
+      "airtimeAmount": "275",
+      "other": {
+        "id": "8",
+        "airtimeAmount": "290",
+        "bank": "zenith",
+        "phoneNo": "09076543214"
+      },
+      "id": "aCteY0u"
+    },
+    {
+      "airtimeAmount": "222",
+      "other": {
+        "id": "8",
+        "airtimeAmount": "290",
+        "bank": "zenith",
+        "phoneNo": "09076543214"
+      },
+      "id": "xFCAkBP"
+    },
+    {
+      "airtimeAmount": "311",
+      "other": {
+        "id": "8",
+        "airtimeAmount": "290",
+        "bank": "zenith",
+        "phoneNo": "09076543214"
+      },
+      "id": "obG8GVy"
+    },
+    {
+      "airtimeAmount": "456",
+      "other": {
+        "id": "8",
+        "airtimeAmount": "290",
+        "bank": "zenith",
+        "phoneNo": "09076543214"
+      },
+      "id": "1qb-x3l"
+    },
+    {
+      "airtimeAmount": "280",
+      "other": {
+        "id": "8",
+        "airtimeAmount": "290",
+        "bank": "zenith",
+        "phoneNo": "09076543214"
+      },
+      "id": "imsfm9C"
+    },
+    {
+      "airtimeAmount": "280",
+      "other": {
+        "id": "8",
+        "airtimeAmount": "290",
+        "bank": "zenith",
+        "phoneNo": "09076543214"
+      },
+      "id": "447hXaZ"
+    },
+    {
+      "phoneNo": "",
+      "id": "RVrRz6s"
+    },
+    {
+      "phoneNo": "",
+      "id": "qiYSEmU"
+    },
+    {
+      "phoneNo": "",
+      "id": "SfHLk5J"
+    },
+    {
+      "phoneNo": "",
+      "id": "sIXz_Pz"
+    },
+    {
+      "phoneNo": "",
+      "id": "pQmwv92"
+    },
+    {
+      "phoneNo": "",
+      "id": "rUZPJKg"
+    },
+    {
+      "phoneNo": "080080",
+      "id": "mRuBgra"
+    },
+    {
+      "phoneNo": "080080",
+      "id": "ksJpBQp"
+    },
+    {
+      "phoneNo": "08023995138",
+      "id": "ikN69zB"
+    },
+    {
+      "phoneNo": "08045456778",
+      "id": "ZhgLfy0"
+    },
+    {
+      "phoneNo": "08023995138",
+      "id": "VT1qTKH"
+    },
+    {
+      "phoneNo": "08023995138",
+      "id": "dtLUzHu"
+    },
+    {
+      "phoneNo": "",
+      "id": "U-X7fUc"
+    },
+    {
+      "phoneNo": "",
+      "id": "YXyCQDf"
+    },
+    {
+      "phoneNo": "",
+      "id": "9UcWgd8"
+    },
+    {
+      "phoneNo": "",
+      "id": "vk19SsG"
+    },
+    {
+      "phoneNo": "",
+      "id": "lnr2vFn"
+    },
+    {
+      "phoneNo": "08023995138",
+      "id": "lQEDq98"
+    },
+    {
+      "phoneNo": "081",
+      "id": "c4p96TK"
+    }
+  ],
+  "otp": [
+    {
+      "otp": "06734",
+      "id": "5"
+    },
+    {
+      "otp": "89024",
+      "id": "bgvE9eo"
+    }
+  ],
+  "nolink": [
+    {
+      "id": "5",
+      "airtimeAmount": "300",
+      "bank": "zenith",
+      "phoneNo": "0801111111"
+    },
+    {
+      "phoneNo": "08023995138",
+      "bank": "Guarantee trust bank",
+      "id": "6NmGUWb"
+    },
+    {
+      "phoneNo": "08045362788",
+      "bank": "Guarantee trust bank",
+      "id": "3-0O0rU"
+    },
+    {
+      "phoneNo": "08023995138",
+      "bank": "Guarantee trust bank",
+      "id": "Ihhtt5G"
+    },
+    {
+      "phoneNo": "08023995138",
+      "bank": "Guarantee trust bank",
+      "id": "f1UKlK7"
+    },
+    {
+      "phoneNo": "08023995138",
+      "bank": "Guarantee trust bank",
+      "id": "0q4ujhn"
+    },
+    {
+      "phoneNo": "08023107443",
+      "bank": "First Bank of Nigeria",
+      "id": "N5SA97Y"
+    },
+    {
+      "phoneNo": "08045456778",
+      "bank": "Guarantee trust bank",
+      "id": "fYylQlM"
+    }
+  ],
+  "bankpayment": [
+    {
+      "id": "6",
+      "airtimeAmount": "20047864",
+      "bank": "zenith",
+      "phoneNo": "0801111111"
+    },
+    {
+      "phoneNo": "08023995138",
+      "bank": "Guarantee trust bank",
+      "id": "6NmGUWb"
+    },
+    {
+      "id": "Z366NKh"
+    },
+    {
+      "id": "SJQuQw5"
+    }
+  ],
+  "phonereg": [
+    {
+      "id": "7",
+      "phoneNo": "09078654321"
+    }
+  ],
+  "ussd": [
+    {
+      "id": "8",
+      "airtimeAmount": "290",
+      "bank": "zenith",
+      "phoneNo": "09076543214"
+    },
+    {
+      "id": "9",
+      "airtimeAmount": "250",
+      "bank": "zenith",
+      "phoneNo": "09036543214"
+    }
+  ]
+}

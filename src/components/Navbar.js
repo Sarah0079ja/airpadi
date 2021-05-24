@@ -8,7 +8,7 @@ const Navbar = () => {
         <>
             <CssBaseline />
 
-            <AppBar style={{background: '#152955',  position:'Relative'}}>
+            <AppBar style={{background: '#152955',  position:'absolute'}}>
                 <Toolbar>
                   
                    <img src={logo} alt="" style={{maxWidth: "100%",displayInline:"flex" }}/>

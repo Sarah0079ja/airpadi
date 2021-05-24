@@ -77,7 +77,7 @@ const Ussd = () => {
                  let item= {airtimeAmount, phoneNo, bank}
                   console.log(item);
         
-                 let result = await fetch('', {
+                 let result = await fetch('http://localhost:5000/otp', {
                   method: "POST",
                   body: JSON.stringify(item),
                   headers: {

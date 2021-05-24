@@ -56,7 +56,7 @@ function Otp() {
             let item = {otp}
             console.log(item)
 
-        let result = await fetch('http://localhost:8000/otp', {
+        let result = await fetch('http://localhost:5000/otp', {
                 method: "POST",
                 body:JSON.stringify(item),
                 headers: {
@@ -90,7 +90,7 @@ function Otp() {
               {
                   overlay:{
                     backgroundImage: `url(${background1}) no-repeat fixed bottom`,
-                     backgroundColor: "grey",
+                     backgroundColor: "#E5E5E5",
                     // backgroundSize: "cover"
                       //  backgroundColor: 'transparent !important'
                   },
@@ -131,7 +131,7 @@ function Otp() {
                                    </Link>
 
                                   <Typography variant="h6" align="center" gutterBottom> 
-                                    <Button variant="contained" size="large" className={classes.button} style={{backgroundColor: "#2E67EC", marginTop: "80px", color: "white"}} onClick={ onSubmit}>
+                                    <Button variant="contained" size="small" className={classes.button} style={{backgroundColor: "#2E67EC", marginTop: "80px", color: "white"}} onClick={ onSubmit}>
                                       Next
                                     </Button> 
                                   </Typography>

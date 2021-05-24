@@ -140,7 +140,7 @@
     
         useEffect(() => {
            const fetchData = async () => {
-            const result = await axios.get('http://localhost:8000/b/8');
+            const result = await axios.get('http://localhost:5000/b/8');
                setOther(result.data);
             };
             fetchData();
@@ -154,7 +154,7 @@
                 let item={airtimeAmount, other}
                 console.log(item)
     
-                let result= await fetch('http://localhost:8000/user', {
+                let result= await fetch('http://localhost:5000/user', {
                 method: "POST",
                 body:JSON.stringify(item),
                 headers: {

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import Modal from 'react-modal';
 import {useHistory} from 'react-router-dom';
 
- import Error from './Error';
+import Error from './Error';
 
 import { TextField, Typography} from '@material-ui/core';
 import useStyle from './Styles';
@@ -23,8 +23,8 @@ function Phonereg1() {
 
         //validate phoneNo
         function validatePhoneNo() {
-            if(phoneNo.length < 11 || phoneNo.length === '') {
-                isError = true;
+            if(phoneNo.length === 11) {
+                isError = false;
                 console.log('we good')
             } 
           
@@ -50,10 +50,10 @@ function Phonereg1() {
             e.preventDefault();
             const err = validate();
             if (!err) {
-                let item={phoneNo}
+                let item = {phoneNo}
                 console.log(item)
     
-                let result= await fetch('http://localhost:8000/user', {
+                let result= await fetch('http://localhost:5000/user', {
                 method: "POST",
                 body:JSON.stringify(item),
                 headers: {
@@ -63,8 +63,6 @@ function Phonereg1() {
             })
             result = await result.json()
             console.log('result', result)
-          
-            
             localStorage.setItem("user-info", JSON.stringify(result))
             history.push("/otp")  
             } else {
@@ -72,9 +70,7 @@ function Phonereg1() {
                     <Error/>
                 }, 5000);
             }
-                 
-                        
-}
+        }
         
 
     const [modalIsOpen, setModalIsOpen] = useState(true)
@@ -105,11 +101,11 @@ function Phonereg1() {
               }
           }>
           
-                <div>
-                    <form className = {classes.root2} >
+            <div>
+                 <form className = {classes.root2} >
 
-                        <div className = {classes.reg1} align="center">
-                         <div item xs={12} className = {classes.form}>
+                     <div className = {classes.reg1} align="center">
+                        <div item xs={12} className = {classes.form}>
                             <Typography variant="h6" 
                              align="center" 
                              gutterBottom 
@@ -119,7 +115,7 @@ function Phonereg1() {
                             > 
                              Welcome to AirtimePadi, please register your phone number below 
                             </Typography>
-
+                            <div className="error" style={{color: "red"}}>{state.phoneNoError}</div>
                             <TextField variant="outlined" 
                                 type="text"
                                 label="Phone Number" 
