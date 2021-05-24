@@ -53,7 +53,7 @@ function Phonereg1() {
                 let item = {phoneNo}
                 console.log(item)
     
-                let result= await fetch('http://localhost:5000/user', {
+                let result= await fetch('http://localhost:5000/phonereg/7', {
                 method: "POST",
                 body:JSON.stringify(item),
                 headers: {

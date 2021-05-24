@@ -15,22 +15,17 @@ const useStyle = makeStyles(themes => ({
     root1: {
         '& .MuiTextField-root': {
             margin: themes.spacing(0.5),
-            width: '80%',
-            
-        
+            width: '80%', 
           },
     },
-
     root2: {
         '& .MuiFormControl-root': {
             width: "60%",
             margin: themes.spacing(0.5),
-            marginTop: "30px"    
-            
+            marginTop: "30px"        
         }
     },
     reg1: {
-        
         fontWeight: "900px",
         fontSize: "17px",
         lineHeight: "30px",

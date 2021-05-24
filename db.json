@@ -1,43 +1,5 @@
 {
-  "user": [
-    {
-      "id": "1",
-      "airtimeAmount": 500,
-      "bank": "uba",
-      "phoneno": "08023995138"
-    },
-    {
-      "id": "2",
-      "airtimeAmount": 500,
-      "bank": "firstbank",
-      "phoneno": "08024876534"
-    },
-    {
-      "phoneNo": "7578789",
-      "id": "39ksvAx"
-    },
-    {
-      "phoneNo": "234516",
-      "id": "dNoJ5QO"
-    },
-    {
-      "phoneNo": "456789",
-      "id": "lalIG6N"
-    },
-    {
-      "phoneNo": "080080",
-      "id": "fvL_D2R"
-    },
-    {
-      "airtimeAmount": "900",
-      "other": {
-        "id": "8",
-        "airtimeAmount": "290",
-        "bank": "zenith",
-        "phoneNo": "09076543214"
-      },
-      "id": "WTEYvpz"
-    },
+  "new": [
     {
       "airtimeAmount": "275",
       "other": {
@@ -97,82 +59,6 @@
         "phoneNo": "09076543214"
       },
       "id": "447hXaZ"
-    },
-    {
-      "phoneNo": "",
-      "id": "RVrRz6s"
-    },
-    {
-      "phoneNo": "",
-      "id": "qiYSEmU"
-    },
-    {
-      "phoneNo": "",
-      "id": "SfHLk5J"
-    },
-    {
-      "phoneNo": "",
-      "id": "sIXz_Pz"
-    },
-    {
-      "phoneNo": "",
-      "id": "pQmwv92"
-    },
-    {
-      "phoneNo": "",
-      "id": "rUZPJKg"
-    },
-    {
-      "phoneNo": "080080",
-      "id": "mRuBgra"
-    },
-    {
-      "phoneNo": "080080",
-      "id": "ksJpBQp"
-    },
-    {
-      "phoneNo": "08023995138",
-      "id": "ikN69zB"
-    },
-    {
-      "phoneNo": "08045456778",
-      "id": "ZhgLfy0"
-    },
-    {
-      "phoneNo": "08023995138",
-      "id": "VT1qTKH"
-    },
-    {
-      "phoneNo": "08023995138",
-      "id": "dtLUzHu"
-    },
-    {
-      "phoneNo": "",
-      "id": "U-X7fUc"
-    },
-    {
-      "phoneNo": "",
-      "id": "YXyCQDf"
-    },
-    {
-      "phoneNo": "",
-      "id": "9UcWgd8"
-    },
-    {
-      "phoneNo": "",
-      "id": "vk19SsG"
-    },
-    {
-      "phoneNo": "",
-      "id": "lnr2vFn"
-    },
-    {
-      "phoneNo": "08023995138",
-      "id": "lQEDq98"
-    },
-    {
-      "phoneNo": "081",
-      "id": "c4p96TK"
     }
   ],
   "otp": [
@@ -183,6 +69,10 @@
     {
       "otp": "89024",
       "id": "bgvE9eo"
+    },
+    {
+      "otp": "12345",
+      "id": "dS7d7eI"
     }
   ],
   "nolink": [

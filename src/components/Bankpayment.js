@@ -179,17 +179,9 @@
     
         return (
             <Container maxWidth="sm">
-                 <div>
-              
-                 </div>
-                  
-                    {/* <div maxWidth="sm" className = {classes.ussd} >
-                        <Success airtimeAmount={airtimeAmount} phoneNo={other.phoneNo} />
-                        <Completetrans airtimeAmount={airtimeAmount} phoneNo={other.phoneNo} bank={other.bank}/>
-                    </div>  */}
-    
+             
                     <div>
-                     <Typography variant="h5" align="center" gutterBottom>
+                     <Typography variant="h5" align="center" gutterBottom style={{paddingTop:"100px"}}>
                      Buying airtime has never been this easy!
                      <img src={party} alt="" style={{marginLeft:"5px", height:"20px", width: "20px"}}/>
                      </Typography>

@@ -101,7 +101,7 @@ const Ussd = () => {
             <Container maxWidth="sm" className = {classes.ussd} >
           
                 <div>
-                 <Typography variant="h5" align="center" gutterBottom>
+                 <Typography variant="h5" align="center" gutterBottom style={{paddingTop:"60px"}}>
                  Buying airtime has never been this easy!
                  <img src={party} alt="" style={{marginLeft:"5px", height:"20px", width: "20px"}}/>
                  </Typography>
