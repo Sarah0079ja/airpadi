@@ -48,3 +48,26 @@
   width: "600px";
   height: "500px";
 }
+.bankmod{
+
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    width: 30%;
+    height: 50%;
+    color: #000000
+ 
+}
+@media (max-width: 700px) {
+  .bankmod{
+
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    
+    width: 70%;
+    height: 50%;
+    color: #000000
+ 
+}
+}

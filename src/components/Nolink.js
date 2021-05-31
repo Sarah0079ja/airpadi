@@ -13,7 +13,7 @@ import Button from '@material-ui/core/Button';
 import banks from './banks.json';
 
 const validationSchema = yup.object({
-  airtimeAmount: yup.string().matches(/^[1-9]{5}/,"Enter your airtime amount").required('Required'),
+  airtimeAmount: yup.string().matches(/^[0-9\b]+$/,"Enter your airtime amount").required('Required'),
   phoneNo: yup.string().matches(/^[0]{1}[0-9]{2}[0-9]{8}/,"Enter your phone number").required('Required'),
   bank: yup.string().required("Select your bank"),
 })
@@ -21,7 +21,7 @@ const validationSchema = yup.object({
 const Nolink = () => {
 
   const onSubmit = async (values) => {
-    const {airtimeAmount, ...data} = values;
+    const { ...data} = values;
     const response = await axios.post('http://localhost:5000/nolink', data).catch((err) => {
       if(err && err.response) 
         console.log('Error: ', err);

@@ -17,40 +17,27 @@
     import Modal from '@material-ui/core/Modal';
     import {useHistory} from 'react-router-dom';
     // import { makeStyles } from '@material-ui/core/styles';
-    
-    
-    function rand() {
-        return Math.round(Math.random() * 20) - 10;
-      }
+   
     
       function getModalStyle() {
-        const top = 50 + rand();
-        const left = 45 + rand();
+       
       
         return {
-            // top: "50%",
-            // left: "50%",
-            // right: "auto",
-            // bottom: "auto",
-            // marginRight: "-50%",
-            // transform: "translate(-50%, -50%)",
-            // width:"40%"
-            //  width:  "200px",
-            //  height: "200px",
-             top: `${top}%`,
-             left: `${left}%`,
-             bottom: 'auto',
-             marginRight: "-50%",
-             transform: `translate(-${top}%, -${left}%)`,
-             color: 'black',
-             align: "center"
+            display: 'none', /* Hidden by default */
+            position: 'fixed',
+            // z-index: '1',
+            paddingTop: '100px',
+            left: '0',
+            top: '0',
+            width: '100%',
+            height: '100%',
+            overflow: 'auto',
+           
+            backgroundcolor: 'rgba(0,0,0,0.4)'
         };
+      
       }
-    
-    // const useStyles = makeStyles((theme) => ({
-     
-    // }));
-    
+      
       
     const B = () => {
         const [state, setState] = useState({
@@ -68,13 +55,13 @@
           };
         
           const handleClose = () => {
-            setOpen(false);
+            setOpen(true);
           };
     
           
       const body = (
-        <div style={modalStyle} className={classes.mod} >
-            <Paper>
+        <div >
+         
           <h2 id="simple-modal-title" className={classes.h2}>Transaction Details</h2>
           <p id=""
           className={classes.h2} >
@@ -103,12 +90,11 @@
                  Buy Airtime
             </Button>   
           </Typography>
-          </Paper>
+         
         </div>
       );
         
-        // const [count, setCount] = useState(1)
-        // const history = useHistory();
+       
     
         let isError = false;
         const errors = {}
@@ -140,7 +126,7 @@
     
         useEffect(() => {
            const fetchData = async () => {
-            const result = await axios.get('http://localhost:5000/b/8');
+            const result = await axios.get('http://localhost:5000/bankpayment/6');
                setOther(result.data);
             };
             fetchData();
@@ -152,9 +138,9 @@
             const err = validate();
             if(!err) {
                 let item={airtimeAmount, other}
-                console.log(item)
+                // console.log(item)
     
-                let result= await fetch('http://localhost:5000/user', {
+                let result= await fetch('http://localhost:5000/new', {
                 method: "POST",
                 body:JSON.stringify(item),
                 headers: {
@@ -167,7 +153,7 @@
             localStorage.setItem("user-info", JSON.stringify(result))
             setTimeout(() => {
                 history.push('/success')
-            }, 5000);
+            }, 2000);
             
             
             } else{
@@ -223,8 +209,8 @@
                        </div>  
                             <div>
                                <Typography variant="h6" align="center" gutterBottom> 
-                                       <Button variant="contained" size="large" color="primary" className={classes.button}
-                                        
+                                       <Button variant="contained" size="large" color="primary" 
+                                        className={classes.button}
                                         onClick={handleOpen}
                                        >
                                            Buy Airtime
@@ -238,11 +224,10 @@
                        <Modal 
                        open={open}
                        onClose={handleClose}
-                       aria-labelledby="simple-modal-title"
-                       aria-describedby="simple-modal-description"
+                  
                        className={classes.modal}>
                            
-                           <div style={{color:'black'}}>
+                           <div style={{color:'black'}} className='bankmod'>
                                 {body}
                             </div> 
                             

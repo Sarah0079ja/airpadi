@@ -2,10 +2,12 @@ import React, {useState} from 'react';
 import Modal from 'react-modal';
 import successalert from './image/successalert.png';
 import { Typography} from '@material-ui/core'; 
+import {useHistory} from 'react-router-dom';
 
 
 function Success(props) {
     const [modalIsOpen, setModalIsOpen] = useState(true)
+    const history = useHistory();
     // const [airtimeAmount, other] = props
     Modal.setAppElement('#root')
     return (
@@ -35,7 +37,7 @@ function Success(props) {
           }>
                  <div>
                     <button onClick={() =>setModalIsOpen(false)}
-                    
+                    {...history.push('/bankpayment')}
                     >x</button>
                 </div>
                 <img src={successalert} alt="" 

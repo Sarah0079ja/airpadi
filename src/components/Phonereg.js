@@ -3,13 +3,18 @@ import Modal from 'react-modal';
 import {useHistory} from 'react-router-dom';
 
 import Error from './Error';
-
+import background1 from './image/background1.png';
 import { TextField, Typography} from '@material-ui/core';
 import useStyle from './Styles';
 import Button from '@material-ui/core/Button';
 
+
+function validatePhone(phoneNo) {
+    const re = /^[0]\d{10}$/
+    return re.test(phoneNo);
+}
 function Phonereg1() {
-        //  const phoneNoRegex = RegExp(/^234[0-9]{11}/)
+        
 
        const [state, setState] = useState({
            phoneNoError: '',
@@ -26,10 +31,14 @@ function Phonereg1() {
             if(phoneNo.length === 11) {
                 isError = false;
                 console.log('we good')
-            } 
+            }else if (!validatePhone(phoneNo)) {
+                isError = true;
+                errors.phoneNoError = "Phone Number must be 11 digits"
+                console.log('big eror')
+            }
           
             else {
-                isError = false;
+                isError = true;
                 errors.phoneNoError = "Phone Number must be 11 digits"
             }
         }
@@ -51,9 +60,9 @@ function Phonereg1() {
             const err = validate();
             if (!err) {
                 let item = {phoneNo}
-                console.log(item)
+                // console.log(item)
     
-                let result= await fetch('http://localhost:5000/phonereg/7', {
+                let result= await fetch('http://localhost:5000/phonereg', {
                 method: "POST",
                 body:JSON.stringify(item),
                 headers: {
@@ -78,7 +87,7 @@ function Phonereg1() {
     return (
         <div className="">
          
-          <Modal 
+          <Modal
           isOpen={modalIsOpen} 
            onRequestClose={() => setModalIsOpen(false)}
         //   shouldCloseOverlayClick = {false}
@@ -86,7 +95,7 @@ function Phonereg1() {
               {
                   overlay:{
                    
-                    backgroundColor: "#E5E5E5"
+                    background: `url${background1}`
                    
                   },
                   content: {
@@ -100,6 +109,7 @@ function Phonereg1() {
                   }
               }
           }>
+             
           
             <div>
                  <form className = {classes.root2} >
@@ -115,7 +125,7 @@ function Phonereg1() {
                             > 
                              Welcome to AirtimePadi, please register your phone number below 
                             </Typography>
-                            <div className="error" style={{color: "red"}}>{state.phoneNoError}</div>
+                            {/* <div className="error" style={{color: "red"}}>{state.phoneNoError}</div> */}
                             <TextField variant="outlined" 
                                 type="text"
                                 label="Phone Number" 

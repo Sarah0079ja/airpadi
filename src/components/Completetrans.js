@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { Typography, Grid, Button} from '@material-ui/core'
 import successalert from './image/successalert.png';
+import background1 from './image/background1.png';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from 'react-modal';
@@ -35,7 +36,7 @@ function Completetrans(props) {
               {
                   overlay:{
 
-                    // background: url(${image}) no-repeat fixed bottom;
+                     background: `url(${background1}) no-repeat fixed bottom`,
                     backgroundColor: "grey",
                      background: 'transparent !important'
                   },

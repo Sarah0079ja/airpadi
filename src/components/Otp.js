@@ -54,7 +54,7 @@ function Otp() {
 
             
             let item = {otp}
-            console.log(item)
+            // console.log(item)
 
         let result = await fetch('http://localhost:5000/otp', {
                 method: "POST",
